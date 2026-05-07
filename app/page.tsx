@@ -171,14 +171,19 @@ function PlaceholderCard({ title, category, tall = false }: { title: string; cat
       transition={{ type: "spring", stiffness: 260, damping: 20 }}
       className="group overflow-hidden rounded-[8px] glass-card"
     >
-      <div className={`placeholder-grid relative grid place-items-center bg-[#090909] ${tall ? "aspect-[4/5]" : "aspect-video"}`}>
-        {/* Replace this blank placeholder with your portfolio video or image */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] via-transparent to-gold/[0.08]" />
-        <div className="absolute inset-0 opacity-0 shadow-[inset_0_0_90px_rgba(255,196,0,0.20)] transition-opacity duration-300 group-hover:opacity-100" />
-        <button aria-label={`Play ${title}`} className="relative grid h-16 w-16 place-items-center rounded-full border border-white/55 bg-black/30 text-white backdrop-blur transition group-hover:border-gold group-hover:text-gold group-hover:shadow-gold">
-          <Play className="ml-1 h-7 w-7 fill-current" />
-        </button>
-      </div>
+      <div className={`placeholder-grid relative overflow-hidden bg-[#090909] ${tall ? "aspect-[4/5]" : "aspect-video"}`}>
+  <iframe
+    src="https://player.vimeo.com/video/1190198240?background=1&autoplay=1&loop=1&muted=1"
+    className="absolute inset-0 h-full w-full"
+    frameBorder="0"
+    allow="autoplay; fullscreen"
+    allowFullScreen
+  ></iframe>
+
+  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+
+  <div className="absolute inset-0 opacity-0 shadow-[inset_0_0_90px_rgba(255,196,0,0.20)] transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+</div>
       <div className="border-t border-gold/25 p-5">
         <div className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-gold">{category}</div>
         <h3 className="text-xl font-black uppercase text-white">{title}</h3>
