@@ -360,7 +360,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="portfolio" className="px-5 py-24 md:px-8 xl:px-12">
+      <div className="mt-14 space-y-20"> className="px-5 py-24 md:px-8 xl:px-12">
         <div className="mx-auto max-w-[1540px]">
           <Reveal>
             <SectionEyebrow>Portfolio</SectionEyebrow>
