@@ -9,7 +9,7 @@ import {
   Clapperboard,
   Diamond,
   Film,
-  Mail,
+  Instagram, Mail,
   Menu,
   MessageCircle,
   PenTool,
@@ -21,7 +21,7 @@ import {
   X,
   Zap
 } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useState } from "react";
 
 const navItems = [
   { label: "Home", href: "#home" },
@@ -237,7 +237,33 @@ function PlaceholderCard({
 export default function Home() {
   const [active, setActive] = useState("home");
   const [menuOpen, setMenuOpen] = useState(false);
+const [contactForm, setContactForm] = useState({
+  name: "",
+  email: "",
+  projectType: "",
+  budgetRange: "",
+  message: ""
+});
 
+const handleContactSubmit = (e: FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+
+  const subject = encodeURIComponent(
+    `New Project Inquiry from ${contactForm.name}`
+  );
+
+  const body = encodeURIComponent(
+`Name: ${contactForm.name}
+Email: ${contactForm.email}
+Project Type: ${contactForm.projectType}
+Budget Range: ${contactForm.budgetRange}
+
+Message:
+${contactForm.message}`
+  );
+
+  window.location.href = `mailto:khurbusiness@gmail.com?subject=${subject}&body=${body}`;
+};
   const sectionIds = useMemo(() => navItems.map((item) => item.href.replace("#", "")), []);
 
   useEffect(() => {
@@ -562,32 +588,96 @@ export default function Home() {
                 <p><span className="text-gold">Telegram:</span> 09690135745</p>
                 <p><span className="text-gold">Location:</span> Philippines</p>
               </div>
-              <div className="mt-8 grid gap-3 sm:grid-cols-2">
-                {["Instagram", "Email", "WhatsApp", "Portfolio Link"].map((item) => (
-                  <a key={item} href={item === "Email" ? "mailto:khurbusiness@gmail.com" : "#contact"} className="inline-flex items-center justify-center rounded-[8px] border border-gold/70 px-5 py-4 font-black uppercase text-gold transition hover:bg-gold hover:text-black">
-                    {item}
-                    {item === "WhatsApp" ? <MessageCircle className="ml-3 h-5 w-5" /> : <Mail className="ml-3 h-5 w-5" />}
-                  </a>
-                ))}
-              </div>
+             <div className="mt-8 grid gap-3 sm:grid-cols-2">
+  {[
+    {
+      label: "Instagram",
+      href: "https://www.instagram.com/khurisk_/",
+      icon: Mail
+    },
+    {
+      label: "Email",
+      href: "mailto:khurbusiness@gmail.com",
+      icon: Mail
+    },
+    {
+      label: "WhatsApp",
+      href: "https://wa.me/639690135745",
+      icon: MessageCircle
+    },
+    {
+      label: "Portfolio Link",
+      href: "https://drive.google.com/drive/folders/1pWIJqRwcIZzXgY_y3jRtccH2LQl_Sgnh?usp=sharing",
+      icon: Mail
+    }
+  ].map((item) => {
+    const Icon = item.icon;
+
+    return (
+      <a
+        key={item.label}
+        href={item.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center justify-center rounded-[8px] border border-gold/70 px-5 py-4 font-black uppercase text-gold transition hover:bg-gold hover:text-black"
+      >
+        {item.label}
+        <Icon className="ml-3 h-5 w-5" />
+      </a>
+    );
+  })}
+</div>
             </Reveal>
             <Reveal delay={0.1}>
-              <form className="grid gap-4">
-                {["Name", "Email", "Project Type", "Budget Range"].map((label) => (
-                  <label key={label} className="block">
-                    <span className="mb-2 block text-xs font-bold uppercase tracking-[0.18em] text-gold">{label}</span>
-                    <input className="w-full rounded-[8px] border border-gold/35 bg-black/55 px-4 py-4 text-white outline-none transition focus:border-gold focus:shadow-gold-soft" placeholder={label} type={label === "Email" ? "email" : "text"} />
-                  </label>
-                ))}
-                <label className="block">
-                  <span className="mb-2 block text-xs font-bold uppercase tracking-[0.18em] text-gold">Message</span>
-                  <textarea className="min-h-40 w-full resize-y rounded-[8px] border border-gold/35 bg-black/55 px-4 py-4 text-white outline-none transition focus:border-gold focus:shadow-gold-soft" placeholder="Tell me about your project" />
-                </label>
-                <button className="mt-2 inline-flex items-center justify-center rounded-[8px] bg-gold px-8 py-4 font-black uppercase text-black shadow-gold transition hover:-translate-y-1" type="button">
-                  Send Message
-                  <Send className="ml-3 h-5 w-5" />
-                </button>
-              </form>
+            <form onSubmit={handleContactSubmit} className="grid gap-4">
+  {[
+    { label: "Name", key: "name", type: "text" },
+    { label: "Email", key: "email", type: "email" },
+    { label: "Project Type", key: "projectType", type: "text" },
+    { label: "Budget Range", key: "budgetRange", type: "text" }
+  ].map((field) => (
+    <label key={field.key} className="block">
+      <span className="mb-2 block text-xs font-bold uppercase tracking-[0.18em] text-gold">
+        {field.label}
+      </span>
+
+      <input
+        required
+        type={field.type}
+        value={contactForm[field.key as keyof typeof contactForm]}
+        onChange={(e) =>
+          setContactForm({ ...contactForm, [field.key]: e.target.value })
+        }
+        className="w-full rounded-[8px] border border-gold/35 bg-black/55 px-4 py-4 text-white outline-none transition focus:border-gold focus:shadow-gold-soft"
+        placeholder={field.label}
+      />
+    </label>
+  ))}
+
+  <label className="block">
+    <span className="mb-2 block text-xs font-bold uppercase tracking-[0.18em] text-gold">
+      Message
+    </span>
+
+    <textarea
+      required
+      value={contactForm.message}
+      onChange={(e) =>
+        setContactForm({ ...contactForm, message: e.target.value })
+      }
+      className="min-h-40 w-full resize-y rounded-[8px] border border-gold/35 bg-black/55 px-4 py-4 text-white outline-none transition focus:border-gold focus:shadow-gold-soft"
+      placeholder="Tell me about your project"
+    />
+  </label>
+
+  <button
+    className="mt-2 inline-flex items-center justify-center rounded-[8px] bg-gold px-8 py-4 font-black uppercase text-black shadow-gold transition hover:-translate-y-1"
+    type="submit"
+  >
+    Send Message
+    <Send className="ml-3 h-5 w-5" />
+  </button>
+</form>
             </Reveal>
           </div>
         </div>
