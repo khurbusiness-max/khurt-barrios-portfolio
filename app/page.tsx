@@ -360,57 +360,61 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="mt-14 space-y-20"> className="px-5 py-24 md:px-8 xl:px-12">
-        <div className="mx-auto max-w-[1540px]">
-          <Reveal>
-            <SectionEyebrow>Portfolio</SectionEyebrow>
-            <Heading white="Selected" gold="Creative Work" />
-          </Reveal>
-         <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-  {[
-    {
-      title: "Real Estate Works",
-      copy: "Cinematic condo ads, luxury property edits, and high-converting real estate content.",
-      href: "https://drive.google.com/drive/folders/1KxwM4Q2_v0kTe_395385LHUItXy0e66z?usp=sharing"
-    },
-    {
-      title: "Graphic Design",
-      copy: "Posters, social media creatives, branding visuals, and ad graphics.",
-      href: "https://drive.google.com/drive/folders/1nODWjs6jBzZYFq9TYI-4J6GXhEEDqcAc?usp=drive_link"
-    },
-    {
-      title: "UGC AI Videos",
-      copy: "AI-generated ads, cinematic AI content, and viral short-form creatives.",
-      href: "https://drive.google.com/drive/folders/1CxYmWGwOLtFf0mRTJLWnq6olq-jIkMLG?usp=sharing"
-    },
-    {
-      title: "UGC Video Works",
-      copy: "Product ads, TikTok edits, engaging UGC campaigns, and conversion-focused videos.",
-      href: "https://drive.google.com/drive/folders/1t5FciMj3t47mY6ec8YJgThfJoEZ8BgXq?usp=sharing"
-    }
-  ].map((item) => (
-    <a
-      key={item.title}
-      href={item.href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group rounded-[24px] border border-gold/20 bg-[#0b0b0b] p-8 transition-all duration-300 hover:-translate-y-2 hover:border-gold hover:shadow-[0_0_40px_rgba(255,196,0,0.15)]"
-    >
-      <h3 className="text-2xl font-black uppercase text-white">
-        {item.title}
-      </h3>
+<section id="portfolio" className="px-5 py-24 md:px-8 xl:px-12">
+  <div className="mx-auto max-w-[1540px]">
+    
+    <Reveal>
+      <SectionEyebrow>Portfolio</SectionEyebrow>
+      <Heading white="Selected" gold="Creative Work" />
+    </Reveal>
 
-      <p className="mt-4 text-sm leading-7 text-white/60">
-        {item.copy}
-      </p>
+    <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+      {[
+        {
+          title: "Real Estate Works",
+          copy: "Cinematic condo ads, luxury property edits, and high-converting real estate content.",
+          href: "https://drive.google.com/drive/folders/1KxwM4Q2_v0kTe_395385LHUItXy0e66z?usp=sharing"
+        },
+        {
+          title: "Graphic Design",
+          copy: "Posters, social media creatives, branding visuals, and ad graphics.",
+          href: "https://drive.google.com/drive/folders/1nODWjs6jBzZYFq9TYI-4J6GXhEEDqcAc?usp=drive_link"
+        },
+        {
+          title: "UGC AI Videos",
+          copy: "AI-generated ads, cinematic AI content, and viral short-form creatives.",
+          href: "https://drive.google.com/drive/folders/1CxYmWGwOLtFf0mRTJLWnq6olq-jIkMLG?usp=sharing"
+        },
+        {
+          title: "UGC Video Works",
+          copy: "Product ads, TikTok edits, engaging UGC campaigns, and conversion-focused videos.",
+          href: "https://drive.google.com/drive/folders/1t5FciMj3t47mY6ec8YJgThfJoEZ8BgXq?usp=sharing"
+        }
+      ].map((item) => (
+        <a
+          key={item.title}
+          href={item.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group rounded-[24px] border border-gold/20 bg-[#0b0b0b] p-8 transition-all duration-300 hover:-translate-y-2 hover:border-gold hover:shadow-[0_0_40px_rgba(255,196,0,0.15)]"
+        >
+          <h3 className="text-2xl font-black uppercase text-white">
+            {item.title}
+          </h3>
 
-      <div className="mt-8 inline-flex items-center rounded-full bg-gold px-6 py-3 text-sm font-black uppercase text-black transition group-hover:scale-105">
-        View Works →
-      </div>
-    </a>
-  ))}
-</div>
-      </section>
+          <p className="mt-4 text-sm leading-7 text-white/60">
+            {item.copy}
+          </p>
+
+          <div className="mt-8 inline-flex items-center rounded-full bg-gold px-6 py-3 text-sm font-black uppercase text-black transition group-hover:scale-105">
+            View Works →
+          </div>
+        </a>
+      ))}
+    </div>
+
+  </div>
+</section>
 
       <section id="experience" className="relative px-5 py-24 md:px-8 xl:px-12">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(255,196,0,0.12),transparent_28rem)]" />
