@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "KB Portfolio",
   description:
     "Khurt Barrios portfolio for high-retention video editing, graphic design, UGC ads, and cinematic content.",
+  icons: {
+    icon: "/icon.png"
+  },
   openGraph: {
     title: "KB Portfolio",
     description:
