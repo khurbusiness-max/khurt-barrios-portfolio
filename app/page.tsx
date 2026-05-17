@@ -596,9 +596,11 @@ ${contactForm.message}`
              <div className="mt-8 grid gap-3 sm:grid-cols-2">
   {[
     {
-      label: "Instagram",
-      href: "https://www.instagram.com/khurisk_/",
-      icon: Mail
+    {
+  label: "Instagram",
+  href: "https://www.instagram.com/khurisk_/",
+  icon: Instagram
+},
     },
     {
       label: "Email",
