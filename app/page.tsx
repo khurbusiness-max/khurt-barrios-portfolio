@@ -288,9 +288,14 @@ ${contactForm.message}`
     <main className="noise luxury-bg min-h-screen overflow-hidden">
       <header className="fixed inset-x-0 top-0 z-50 border-b border-white/5 bg-[#050505]/88 backdrop-blur-xl">
         <nav className="mx-auto flex h-20 max-w-[1540px] items-center justify-between px-5 md:px-8 xl:px-12">
-          <a href="#home" className="display-title text-5xl text-white md:text-6xl">
-            KB<span className="text-gold">.</span>
-          </a>
+         <a href="#home" className="flex flex-col items-start leading-none text-white">
+  <span className="display-title text-5xl md:text-6xl">
+    KB<span className="text-gold">.</span>
+  </span>
+  <span className="mt-1 text-[10px] font-black uppercase tracking-[0.35em] text-gold">
+    Media
+  </span>
+</a>
           <div className="hidden items-center gap-7 lg:flex xl:gap-10">
             {navItems.map((item) => (
               <a key={item.href} href={item.href} className={`relative text-sm font-bold uppercase transition hover:text-gold ${active === item.href.slice(1) ? "text-gold" : "text-white"}`}>
