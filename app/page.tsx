@@ -44,13 +44,13 @@ const services = [
 ];
 
 const brands = [
-  { name: "SMDC", role: "Real Estate" },
-  { name: "ABCLOTHING Lifestyle", role: "TikTok Ads" },
-  { name: "Organic Shirt", role: "TikTok Ads" },
-  { name: "MX Studio", role: "Video Editor" },
-  { name: "Skintech Luxa Brush", role: "Video Editor" },
-  { name: "WRLD KICKS", role: "UGC & Filming" },
-  { name: "TLC Trading", role: "Video Editor" },
+  { name: "SMDC", role: "Real Estate", logo: "/images/logos/smdc.png" },
+  { name: "ABCLOTHING Lifestyle", role: "TikTok Ads", logo: "/images/logos/abclothing.png" },
+  { name: "Organic Shirt", role: "TikTok Ads", logo: "/images/logos/organic-shirt.png" },
+  { name: "MX Studio", role: "Video Editor", logo: "/images/logos/mx-studio.png" },
+  { name: "Skintech Luxa Brush", role: "Video Editor", logo: "/images/logos/luxa-brush.png" },
+  { name: "WRLD KICKS", role: "UGC & Filming", logo: "/images/logos/wrld-kicks.png" },
+  { name: "TLC Trading", role: "Video Editor", logo: "/images/logos/tlc-trading.png" },
   { name: "Tigrox", role: "UGC AI Ads", logo: "/images/logos/tigrox.png" },
   { name: "Khursha", role: "AI Skincare Graphics", logo: "/images/logos/khursha.png" },
   { name: "ADSCrafters", role: "Owner / Creative Lead", logo: "/images/logos/adscrafters.png" },
