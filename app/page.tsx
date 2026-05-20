@@ -70,17 +70,44 @@ const testimonials = [
   {
     quote: "Khurt delivered exceptional work. The edits were clean, engaging, and exactly what we needed.",
     client: "SMDC Marketing Team",
-    role: "Real Estate"
+    role: "Real Estate",
+    logo: "/images/logos/smdc.png"
+  },
+  {
+    quote: "The TikTok ad creatives were clean, on-brand, and easy to use for our campaigns. Great work and smooth communication.",
+    client: "ABCLOTHING Lifestyle",
+    role: "TikTok Ads",
+    logo: "/images/logos/abclothing.png"
+  },
+  {
+    quote: "Khurt created engaging content that helped our products look more professional and ready for social media promotion.",
+    client: "Organic Shirt",
+    role: "TikTok Ads",
+    logo: "/images/logos/organic-shirt.png"
+  },
+  {
+    quote: "Creative, reliable, and professional. He understands the vision and brings it to life with polished editing.",
+    client: "MX Studio",
+    role: "Video Editor",
+    logo: "/images/logos/mx-studio.png"
+  },
+  {
+    quote: "The product visuals and edits were clean, premium, and well-suited for beauty and lifestyle marketing.",
+    client: "Skintech Luxa Brush",
+    role: "Video Editor",
+    logo: "/images/logos/luxa-brush.png"
   },
   {
     quote: "Great communication and fast turnaround. Our UGC ads performed really well.",
     client: "WRLD KICKS",
-    role: "UGC & Filming"
+    role: "UGC & Filming",
+    logo: "/images/logos/wrld-kicks.png"
   },
   {
     quote: "High-quality work and very easy to work with. Highly recommended.",
     client: "TLC Trading",
-    role: "Video Editor"
+    role: "Video Editor",
+    logo: "/images/logos/tlc-trading.png"
   },
   {
     quote: "Khurt helped create clean and engaging AI-powered UGC ads for our product campaign. The visuals were polished, creative, and built for attention.",
@@ -107,7 +134,6 @@ const testimonials = [
     logo: "/images/logos/more-business.png"
   }
 ];
-
 const fadeUp = {
   hidden: { opacity: 0, y: 42 },
   visible: { opacity: 1, y: 0 }
