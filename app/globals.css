@@ -111,3 +111,13 @@ body {
     linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   background-size: 36px 36px;
 }
+
+select option {
+  background-color: #050505;
+  color: #ffffff;
+}
+
+select:focus option:checked {
+  background-color: #1a1400;
+  color: #ffc400;
+}
