@@ -87,18 +87,12 @@ interface PortfolioFeature {
   copy: string;
 }
 
-interface PortfolioVideo {
-  label: string;
-  size: "large" | "small";
-}
-
 interface PortfolioSlide {
   eyebrow: string;
   titleWhite: string;
   titleGold: string;
   description: string;
   features: PortfolioFeature[];
-  videos: PortfolioVideo[];
   link: string;
 }
 
@@ -115,13 +109,6 @@ const portfolioSlides: PortfolioSlide[] = [
       { icon: Zap, title: "SMOOTH PACING", copy: "Fast cuts, seamless transitions, and story-driven edits." },
       { icon: TrendingUp, title: "BUILT FOR ENGAGEMENT", copy: "Optimized for retention, saves, shares, and conversions." },
     ],
-    videos: [
-      { label: "TikTok Style UGC Edit", size: "large" },
-      { label: "Talking Head UGC Edit", size: "large" },
-      { label: "Story-Driven UGC Edit", size: "small" },
-      { label: "Lifestyle UGC Content", size: "small" },
-      { label: "Testimonial UGC Edit", size: "small" },
-    ],
     link: "https://drive.google.com/drive/folders/1t5FciMj3t47mY6ec8YJgThfJoEZ8BgXq?usp=sharing",
   },
   {
@@ -135,13 +122,6 @@ const portfolioSlides: PortfolioSlide[] = [
       { icon: Zap, title: "SCALE FAST", copy: "Multiple ad variations and formats produced at speed." },
       { icon: Target, title: "CONVERSION FOCUSED", copy: "Each clip engineered for click-through and buyer action." },
       { icon: TrendingUp, title: "VIRAL POTENTIAL", copy: "Engineered with trending hooks and platform algorithms in mind." },
-    ],
-    videos: [
-      { label: "AI Product Ad", size: "large" },
-      { label: "AI Talking Head", size: "large" },
-      { label: "AI Brand Story", size: "small" },
-      { label: "AI Lifestyle Ad", size: "small" },
-      { label: "AI Testimonial", size: "small" },
     ],
     link: "https://drive.google.com/drive/folders/1CxYmWGwOLtFf0mRTJLWnq6olq-jIkMLG?usp=sharing",
   },
@@ -157,13 +137,6 @@ const portfolioSlides: PortfolioSlide[] = [
       { icon: Target, title: "DRIVE INQUIRIES", copy: "Compelling visuals that push viewers to contact and book viewings." },
       { icon: Zap, title: "FAST TURNAROUND", copy: "Quick delivery without ever compromising on premium quality." },
     ],
-    videos: [
-      { label: "Condo Highlight Reel", size: "large" },
-      { label: "Property Walkthrough", size: "large" },
-      { label: "Luxury Listing Ad", size: "small" },
-      { label: "Real Estate Reel", size: "small" },
-      { label: "Social Media Edit", size: "small" },
-    ],
     link: "https://drive.google.com/drive/folders/1KxwM4Q2_v0kTe_395385LHUItXy0e66z?usp=sharing",
   },
   {
@@ -177,13 +150,6 @@ const portfolioSlides: PortfolioSlide[] = [
       { icon: MonitorSmartphone, title: "FULLY RESPONSIVE", copy: "Pixel-perfect across desktop, tablet, and mobile devices." },
       { icon: Zap, title: "FAST PERFORMANCE", copy: "Optimized for Core Web Vitals and lightning-fast load times." },
       { icon: Target, title: "CONVERSION READY", copy: "Designed to turn every visitor into a lead or paying customer." },
-    ],
-    videos: [
-      { label: "Portfolio Website", size: "large" },
-      { label: "Landing Page", size: "large" },
-      { label: "E-Commerce Site", size: "small" },
-      { label: "Mobile App UI", size: "small" },
-      { label: "Web Application", size: "small" },
     ],
     link: "#contact",
   },
