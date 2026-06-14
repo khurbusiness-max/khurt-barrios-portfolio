@@ -10,7 +10,6 @@ import {
   BriefcaseBusiness,
   Building2,
   Clapperboard,
-  Diamond,
   Film,
   Globe,
   Instagram,
@@ -88,18 +87,12 @@ interface PortfolioFeature {
   copy: string;
 }
 
-interface PortfolioVideo {
-  label: string;
-  size: "large" | "small";
-}
-
 interface PortfolioSlide {
   eyebrow: string;
   titleWhite: string;
   titleGold: string;
   description: string;
   features: PortfolioFeature[];
-  videos: PortfolioVideo[];
   link: string;
 }
 
@@ -116,13 +109,6 @@ const portfolioSlides: PortfolioSlide[] = [
       { icon: Zap, title: "SMOOTH PACING", copy: "Fast cuts, seamless transitions, and story-driven edits." },
       { icon: TrendingUp, title: "BUILT FOR ENGAGEMENT", copy: "Optimized for retention, saves, shares, and conversions." },
     ],
-    videos: [
-      { label: "TikTok Style UGC Edit", size: "large" },
-      { label: "Talking Head UGC Edit", size: "large" },
-      { label: "Story-Driven UGC Edit", size: "small" },
-      { label: "Lifestyle UGC Content", size: "small" },
-      { label: "Testimonial UGC Edit", size: "small" },
-    ],
     link: "https://drive.google.com/drive/folders/1t5FciMj3t47mY6ec8YJgThfJoEZ8BgXq?usp=sharing",
   },
   {
@@ -136,13 +122,6 @@ const portfolioSlides: PortfolioSlide[] = [
       { icon: Zap, title: "SCALE FAST", copy: "Multiple ad variations and formats produced at speed." },
       { icon: Target, title: "CONVERSION FOCUSED", copy: "Each clip engineered for click-through and buyer action." },
       { icon: TrendingUp, title: "VIRAL POTENTIAL", copy: "Engineered with trending hooks and platform algorithms in mind." },
-    ],
-    videos: [
-      { label: "AI Product Ad", size: "large" },
-      { label: "AI Talking Head", size: "large" },
-      { label: "AI Brand Story", size: "small" },
-      { label: "AI Lifestyle Ad", size: "small" },
-      { label: "AI Testimonial", size: "small" },
     ],
     link: "https://drive.google.com/drive/folders/1CxYmWGwOLtFf0mRTJLWnq6olq-jIkMLG?usp=sharing",
   },
@@ -158,13 +137,6 @@ const portfolioSlides: PortfolioSlide[] = [
       { icon: Target, title: "DRIVE INQUIRIES", copy: "Compelling visuals that push viewers to contact and book viewings." },
       { icon: Zap, title: "FAST TURNAROUND", copy: "Quick delivery without ever compromising on premium quality." },
     ],
-    videos: [
-      { label: "Condo Highlight Reel", size: "large" },
-      { label: "Property Walkthrough", size: "large" },
-      { label: "Luxury Listing Ad", size: "small" },
-      { label: "Real Estate Reel", size: "small" },
-      { label: "Social Media Edit", size: "small" },
-    ],
     link: "https://drive.google.com/drive/folders/1KxwM4Q2_v0kTe_395385LHUItXy0e66z?usp=sharing",
   },
   {
@@ -178,13 +150,6 @@ const portfolioSlides: PortfolioSlide[] = [
       { icon: MonitorSmartphone, title: "FULLY RESPONSIVE", copy: "Pixel-perfect across desktop, tablet, and mobile devices." },
       { icon: Zap, title: "FAST PERFORMANCE", copy: "Optimized for Core Web Vitals and lightning-fast load times." },
       { icon: Target, title: "CONVERSION READY", copy: "Designed to turn every visitor into a lead or paying customer." },
-    ],
-    videos: [
-      { label: "Portfolio Website", size: "large" },
-      { label: "Landing Page", size: "large" },
-      { label: "E-Commerce Site", size: "small" },
-      { label: "Mobile App UI", size: "small" },
-      { label: "Web Application", size: "small" },
     ],
     link: "#contact",
   },
@@ -341,34 +306,6 @@ function Heading({
   );
 }
 
-function VideoCard({ label, size }: { label: string; size: "large" | "small" }) {
-  return (
-    <motion.div
-      whileHover={{ scale: 1.02, y: -3 }}
-      transition={{ duration: 0.2 }}
-      className="group overflow-hidden rounded-xl border border-white/8 bg-[#0d0d0d]"
-    >
-      <div
-        className={`relative grid place-items-center ${
-          size === "large" ? "aspect-[4/3]" : "aspect-video"
-        }`}
-      >
-        <div className="absolute inset-0 placeholder-grid opacity-50" />
-        <div className="absolute inset-0 bg-gold/0 transition-all duration-300 group-hover:bg-gold/5" />
-        <div className="relative grid h-12 w-12 place-items-center rounded-full border-2 border-white/40 bg-black/40 backdrop-blur-sm transition-all duration-300 group-hover:border-gold group-hover:bg-gold/15">
-          <Play className="h-4 w-4 translate-x-0.5 fill-white text-white transition-colors duration-300 group-hover:fill-gold group-hover:text-gold" />
-        </div>
-      </div>
-      <div className="flex items-center gap-2 border-t border-white/8 px-3 py-2.5">
-        <Play className="h-2.5 w-2.5 shrink-0 fill-gold text-gold" />
-        <span className="truncate text-[10px] font-bold uppercase tracking-widest text-white/65">
-          {label}
-        </span>
-      </div>
-    </motion.div>
-  );
-}
-
 // ─── MAIN PAGE ─────────────────────────────────────────────────────────────────
 
 export default function Home() {
@@ -508,7 +445,7 @@ export default function Home() {
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
         />
 
-        <div className="relative z-10 mx-auto grid min-h-[calc(100vh-6rem)] max-w-[1540px] items-center px-5 md:px-8 xl:px-12">
+        <div className="relative z-10 mx-auto grid max-w-[1540px] items-start px-5 pt-8 md:px-8 lg:min-h-[calc(100vh-6rem)] lg:items-center lg:pt-0 xl:px-12">
           <div className="grid items-center gap-8 lg:grid-cols-[0.96fr_1.18fr_0.86fr]">
 
             {/* Left — copy */}
@@ -560,7 +497,7 @@ export default function Home() {
             </Reveal>
 
             {/* Center — portrait */}
-            <div className="relative z-30 mx-auto h-[520px] w-full max-w-[520px] lg:-ml-28 xl:-ml-36 xl:h-[680px] xl:max-w-[640px]">
+            <div className="relative z-30 mx-auto h-64 w-full max-w-[300px] sm:h-80 sm:max-w-[380px] md:h-[440px] md:max-w-[480px] lg:h-[520px] lg:-ml-28 lg:max-w-[520px] xl:-ml-36 xl:h-[680px] xl:max-w-[640px]">
               <div className="absolute inset-x-12 bottom-10 top-10 rounded-full bg-gold/28 blur-[68px]" />
               <Image
                 src="/images/khurt-portrait.png"
@@ -701,81 +638,45 @@ export default function Home() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: slideDirection * -56 }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="grid items-start gap-10 lg:grid-cols-[0.85fr_1.15fr]"
             >
-              {/* Left — description */}
-              <div>
-                <SectionEyebrow>Portfolio</SectionEyebrow>
-                <div className="display-title text-6xl uppercase leading-[0.88] md:text-7xl xl:text-8xl">
-                  <span className="metal-text block">{slide.titleWhite}</span>
-                  <span className="gold-fill-text block">{slide.titleGold}</span>
-                </div>
-                <p className="mt-6 max-w-sm text-base leading-8 text-white/65">
-                  {slide.description}
-                </p>
-
-                <div className="mt-8 space-y-5">
-                  {slide.features.map((feature) => {
-                    const FeatureIcon = feature.icon;
-                    return (
-                      <div key={feature.title} className="flex gap-4">
-                        <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-gold/30 bg-gold/10">
-                          <FeatureIcon className="h-4 w-4 text-gold" />
-                        </div>
-                        <div>
-                          <p className="text-sm font-black uppercase tracking-wider text-white">
-                            {feature.title}
-                          </p>
-                          <p className="mt-0.5 text-sm leading-6 text-white/50">
-                            {feature.copy}
-                          </p>
-                        </div>
+              <SectionEyebrow>Portfolio</SectionEyebrow>
+              <div className="display-title text-6xl uppercase leading-[0.88] md:text-7xl xl:text-8xl">
+                <span className="metal-text block">{slide.titleWhite}</span>
+                <span className="gold-fill-text block">{slide.titleGold}</span>
+              </div>
+              <p className="mt-6 max-w-2xl text-base leading-8 text-white/65">
+                {slide.description}
+              </p>
+              <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                {slide.features.map((feature) => {
+                  const FeatureIcon = feature.icon;
+                  return (
+                    <div key={feature.title} className="flex gap-4">
+                      <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-gold/30 bg-gold/10">
+                        <FeatureIcon className="h-4 w-4 text-gold" />
                       </div>
-                    );
-                  })}
-                </div>
-
-                <a
-                  href={slide.link}
-                  target={slide.link.startsWith("http") ? "_blank" : undefined}
-                  rel={slide.link.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="mt-8 inline-flex items-center gap-2 rounded-full border border-gold px-6 py-3 text-sm font-black uppercase text-gold transition hover:bg-gold hover:text-black"
-                >
-                  View Works
-                  <ArrowRight className="h-4 w-4" />
-                </a>
+                      <div>
+                        <p className="text-sm font-black uppercase tracking-wider text-white">{feature.title}</p>
+                        <p className="mt-0.5 text-sm leading-6 text-white/50">{feature.copy}</p>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
-
-              {/* Right — video grid */}
-              <div className="flex flex-col gap-3">
-                <div className="grid grid-cols-2 gap-3">
-                  {slide.videos
-                    .filter((v) => v.size === "large")
-                    .map((video) => (
-                      <VideoCard key={video.label} label={video.label} size="large" />
-                    ))}
-                </div>
-                <div className="grid grid-cols-3 gap-3">
-                  {slide.videos
-                    .filter((v) => v.size === "small")
-                    .map((video) => (
-                      <VideoCard key={video.label} label={video.label} size="small" />
-                    ))}
-                </div>
-              </div>
+              <a
+                href={slide.link}
+                target={slide.link.startsWith("http") ? "_blank" : undefined}
+                rel={slide.link.startsWith("http") ? "noopener noreferrer" : undefined}
+                className="mt-10 inline-flex items-center gap-2 rounded-full border border-gold px-7 py-3.5 text-sm font-black uppercase text-gold transition hover:bg-gold hover:text-black"
+              >
+                View Works
+                <ArrowRight className="h-4 w-4" />
+              </a>
             </motion.div>
           </AnimatePresence>
 
           {/* Slider navigation */}
           <div className="mt-10 flex items-center justify-between">
-            <button
-              onClick={prevSlide}
-              className="flex items-center gap-3 rounded-full border border-white/20 px-6 py-3 text-sm font-black uppercase text-white transition hover:border-gold hover:text-gold"
-            >
-              <ArrowLeft className="h-4 w-4" />
-              Prev
-            </button>
-
             <div className="flex items-center">
               {portfolioSlides.map((_, i) => (
                 <div key={i} className="flex items-center">
@@ -789,7 +690,7 @@ export default function Home() {
                   </button>
                   {i < portfolioSlides.length - 1 && (
                     <span
-                      className={`mx-3 inline-block h-px w-10 transition-colors ${
+                      className={`mx-3 hidden sm:inline-block h-px w-10 transition-colors ${
                         i < currentSlide ? "bg-gold/50" : "bg-white/20"
                       }`}
                     />
@@ -798,13 +699,22 @@ export default function Home() {
               ))}
             </div>
 
-            <button
-              onClick={nextSlide}
-              className="flex items-center gap-3 rounded-full border border-gold px-6 py-3 text-sm font-black uppercase text-gold transition hover:bg-gold hover:text-black"
-            >
-              Next
-              <ArrowRight className="h-4 w-4" />
-            </button>
+            <div className="flex items-center gap-3">
+              <button
+                onClick={prevSlide}
+                className="flex shrink-0 items-center gap-2 rounded-full border border-white/20 px-4 py-3 text-sm font-black uppercase text-white transition hover:border-gold hover:text-gold sm:gap-3 sm:px-6"
+              >
+                <ArrowLeft className="h-4 w-4" />
+                <span className="hidden sm:inline">Prev</span>
+              </button>
+              <button
+                onClick={nextSlide}
+                className="flex shrink-0 items-center gap-2 rounded-full border border-gold px-4 py-3 text-sm font-black uppercase text-gold transition hover:bg-gold hover:text-black sm:gap-3 sm:px-6"
+              >
+                <span className="hidden sm:inline">Next</span>
+                <ArrowRight className="h-4 w-4" />
+              </button>
+            </div>
           </div>
         </div>
       </section>
