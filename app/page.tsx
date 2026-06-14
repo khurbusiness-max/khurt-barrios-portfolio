@@ -676,7 +676,7 @@ export default function Home() {
           </AnimatePresence>
 
           {/* Slider navigation */}
-          <div className="mt-10 flex flex-col gap-5">
+          <div className="mt-10 inline-flex flex-col gap-5">
             <div className="flex items-center">
               {portfolioSlides.map((_, i) => (
                 <div key={i} className="flex items-center">
