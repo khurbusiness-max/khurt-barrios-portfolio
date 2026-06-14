@@ -676,7 +676,7 @@ export default function Home() {
           </AnimatePresence>
 
           {/* Slider navigation */}
-          <div className="mt-10 flex items-center justify-between">
+          <div className="mt-10 flex flex-col gap-5">
             <div className="flex items-center">
               {portfolioSlides.map((_, i) => (
                 <div key={i} className="flex items-center">
@@ -690,7 +690,7 @@ export default function Home() {
                   </button>
                   {i < portfolioSlides.length - 1 && (
                     <span
-                      className={`mx-3 hidden sm:inline-block h-px w-10 transition-colors ${
+                      className={`mx-3 inline-block h-px w-10 transition-colors ${
                         i < currentSlide ? "bg-gold/50" : "bg-white/20"
                       }`}
                     />
@@ -702,16 +702,16 @@ export default function Home() {
             <div className="flex items-center gap-3">
               <button
                 onClick={prevSlide}
-                className="flex shrink-0 items-center gap-2 rounded-full border border-white/20 px-4 py-3 text-sm font-black uppercase text-white transition hover:border-gold hover:text-gold sm:gap-3 sm:px-6"
+                className="flex items-center gap-3 rounded-full border border-white/20 px-6 py-3 text-sm font-black uppercase text-white transition hover:border-gold hover:text-gold"
               >
                 <ArrowLeft className="h-4 w-4" />
-                <span className="hidden sm:inline">Prev</span>
+                Prev
               </button>
               <button
                 onClick={nextSlide}
-                className="flex shrink-0 items-center gap-2 rounded-full border border-gold px-4 py-3 text-sm font-black uppercase text-gold transition hover:bg-gold hover:text-black sm:gap-3 sm:px-6"
+                className="flex items-center gap-3 rounded-full border border-gold px-6 py-3 text-sm font-black uppercase text-gold transition hover:bg-gold hover:text-black"
               >
-                <span className="hidden sm:inline">Next</span>
+                Next
                 <ArrowRight className="h-4 w-4" />
               </button>
             </div>
