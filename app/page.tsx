@@ -433,14 +433,14 @@ export default function Home() {
       </header>
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
-      <section id="home" className="relative overflow-hidden pb-16 pt-24 lg:min-h-screen lg:pb-0">
+      <section id="home" className="relative overflow-hidden pb-16 pt-24">
         <div className="absolute inset-0 opacity-40">
           <Image src="/images/editing-setup.png" alt="" fill priority className="object-cover object-right" />
         </div>
         <div className="absolute inset-0 bg-[linear-gradient(90deg,#050505_0%,rgba(5,5,5,0.88)_34%,rgba(5,5,5,0.40)_67%,#050505_100%)]" />
         <div className="absolute left-[46%] top-[24%] h-80 w-80 rounded-full bg-gold/25 blur-[90px]" />
 
-        <div className="relative z-10 mx-auto grid max-w-[1540px] items-start px-5 pt-8 md:px-8 lg:min-h-[calc(100vh-6rem)] lg:items-center lg:pt-0 xl:px-12">
+        <div className="relative z-10 mx-auto grid max-w-[1540px] items-start px-5 pt-8 md:px-8 xl:px-12">
           <div className="grid items-center gap-8 lg:grid-cols-[0.96fr_1.18fr_0.86fr]">
 
             {/* Left — copy */}
