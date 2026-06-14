@@ -638,20 +638,23 @@ export default function Home() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: slideDirection * -56 }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
+              className="mx-auto max-w-4xl text-center"
             >
-              <SectionEyebrow>Portfolio</SectionEyebrow>
+              <div className="flex justify-center">
+                <SectionEyebrow>Portfolio</SectionEyebrow>
+              </div>
               <div className="display-title text-6xl uppercase leading-[0.88] md:text-7xl xl:text-8xl">
                 <span className="metal-text block">{slide.titleWhite}</span>
                 <span className="gold-fill-text block">{slide.titleGold}</span>
               </div>
-              <p className="mt-6 max-w-2xl text-base leading-8 text-white/65">
+              <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-white/65">
                 {slide.description}
               </p>
               <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
                 {slide.features.map((feature) => {
                   const FeatureIcon = feature.icon;
                   return (
-                    <div key={feature.title} className="flex gap-4">
+                    <div key={feature.title} className="flex gap-4 text-left">
                       <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-gold/30 bg-gold/10">
                         <FeatureIcon className="h-4 w-4 text-gold" />
                       </div>
@@ -663,57 +666,61 @@ export default function Home() {
                   );
                 })}
               </div>
-              <a
-                href={slide.link}
-                target={slide.link.startsWith("http") ? "_blank" : undefined}
-                rel={slide.link.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="mt-10 inline-flex items-center gap-2 rounded-full border border-gold px-7 py-3.5 text-sm font-black uppercase text-gold transition hover:bg-gold hover:text-black"
-              >
-                View Works
-                <ArrowRight className="h-4 w-4" />
-              </a>
+              <div className="mt-10 flex justify-center">
+                <a
+                  href={slide.link}
+                  target={slide.link.startsWith("http") ? "_blank" : undefined}
+                  rel={slide.link.startsWith("http") ? "noopener noreferrer" : undefined}
+                  className="inline-flex items-center gap-2 rounded-full border border-gold px-7 py-3.5 text-sm font-black uppercase text-gold transition hover:bg-gold hover:text-black"
+                >
+                  View Works
+                  <ArrowRight className="h-4 w-4" />
+                </a>
+              </div>
             </motion.div>
           </AnimatePresence>
 
           {/* Slider navigation */}
-          <div className="mt-10 inline-flex flex-col gap-5">
-            <div className="flex items-center">
-              {portfolioSlides.map((_, i) => (
-                <div key={i} className="flex items-center">
-                  <button
-                    onClick={() => goToSlide(i)}
-                    className={`text-sm font-black transition-colors ${
-                      i === currentSlide ? "text-gold" : "text-white/35 hover:text-white/65"
-                    }`}
-                  >
-                    {String(i + 1).padStart(2, "0")}
-                  </button>
-                  {i < portfolioSlides.length - 1 && (
-                    <span
-                      className={`mx-3 inline-block h-px w-10 transition-colors ${
-                        i < currentSlide ? "bg-gold/50" : "bg-white/20"
+          <div className="mt-10 flex justify-center">
+            <div className="inline-flex flex-col items-center gap-5">
+              <div className="flex items-center">
+                {portfolioSlides.map((_, i) => (
+                  <div key={i} className="flex items-center">
+                    <button
+                      onClick={() => goToSlide(i)}
+                      className={`text-sm font-black transition-colors ${
+                        i === currentSlide ? "text-gold" : "text-white/35 hover:text-white/65"
                       }`}
-                    />
-                  )}
-                </div>
-              ))}
-            </div>
+                    >
+                      {String(i + 1).padStart(2, "0")}
+                    </button>
+                    {i < portfolioSlides.length - 1 && (
+                      <span
+                        className={`mx-3 inline-block h-px w-10 transition-colors ${
+                          i < currentSlide ? "bg-gold/50" : "bg-white/20"
+                        }`}
+                      />
+                    )}
+                  </div>
+                ))}
+              </div>
 
-            <div className="flex items-center gap-3">
-              <button
-                onClick={prevSlide}
-                className="flex items-center gap-3 rounded-full border border-white/20 px-6 py-3 text-sm font-black uppercase text-white transition hover:border-gold hover:text-gold"
-              >
-                <ArrowLeft className="h-4 w-4" />
-                Prev
-              </button>
-              <button
-                onClick={nextSlide}
-                className="flex items-center gap-3 rounded-full border border-gold px-6 py-3 text-sm font-black uppercase text-gold transition hover:bg-gold hover:text-black"
-              >
-                Next
-                <ArrowRight className="h-4 w-4" />
-              </button>
+              <div className="flex items-center gap-3">
+                <button
+                  onClick={prevSlide}
+                  className="flex items-center gap-3 rounded-full border border-white/20 px-6 py-3 text-sm font-black uppercase text-white transition hover:border-gold hover:text-gold"
+                >
+                  <ArrowLeft className="h-4 w-4" />
+                  Prev
+                </button>
+                <button
+                  onClick={nextSlide}
+                  className="flex items-center gap-3 rounded-full border border-gold px-6 py-3 text-sm font-black uppercase text-gold transition hover:bg-gold hover:text-black"
+                >
+                  Next
+                  <ArrowRight className="h-4 w-4" />
+                </button>
+              </div>
             </div>
           </div>
         </div>
