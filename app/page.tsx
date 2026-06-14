@@ -439,11 +439,6 @@ export default function Home() {
         </div>
         <div className="absolute inset-0 bg-[linear-gradient(90deg,#050505_0%,rgba(5,5,5,0.88)_34%,rgba(5,5,5,0.40)_67%,#050505_100%)]" />
         <div className="absolute left-[46%] top-[24%] h-80 w-80 rounded-full bg-gold/25 blur-[90px]" />
-        <motion.div
-          className="light-streak bottom-[8%] right-[2%] z-20"
-          animate={{ x: [0, 18, 0], opacity: [0.75, 1, 0.75] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-        />
 
         <div className="relative z-10 mx-auto grid max-w-[1540px] items-start px-5 pt-8 md:px-8 lg:min-h-[calc(100vh-6rem)] lg:items-center lg:pt-0 xl:px-12">
           <div className="grid items-center gap-8 lg:grid-cols-[0.96fr_1.18fr_0.86fr]">
