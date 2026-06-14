@@ -433,7 +433,7 @@ export default function Home() {
       </header>
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
-      <section id="home" className="relative min-h-screen overflow-hidden pt-24">
+      <section id="home" className="relative overflow-hidden pb-16 pt-24 lg:min-h-screen lg:pb-0">
         <div className="absolute inset-0 opacity-40">
           <Image src="/images/editing-setup.png" alt="" fill priority className="object-cover object-right" />
         </div>
